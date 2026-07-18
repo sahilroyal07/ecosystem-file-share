@@ -1,72 +1,112 @@
-# Getting Started with Create React App
+<h1 align="center">🔐 Secure File Share</h1>
+<p align="center">Upload a file, get a code, share it anywhere — retrieve it on any device, no account required.</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://eco-stemm-ewx3.vercel.app"><img src="https://img.shields.io/badge/Live%20Demo-Visit%20App-46E3B7?style=for-the-badge" /></a>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" />
+</p>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##  About
 
-### `npm start`
+**Secure File Share** is a cross-device file sharing web app. Upload a file from any device, and the app generates a unique 6-character access code. Share that code with anyone, and they can retrieve and download the file from any other device — no account, no app install, just the code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Built as a full-stack project with a React frontend and an Express.js backend, using Cloudinary for cloud file storage.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+**JWT-based authentication** — secure login/signup with bcrypt password hashing
+**Drag & drop file upload** — with Cloudinary cloud storage under the hood
+**Unique access codes** — share a code instead of a link or login
+**Cross-device retrieval** — upload on one device, download on any other (phone, laptop, tablet)
+**File management** — star important files, track recent uploads
+**Works everywhere** — any browser, any device, any network
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  Tech Stack
 
-### `npm run build`
+| Layer | Technology |
+|---|---|
+| Frontend | React, Framer Motion, Lucide Icons |
+| Backend | Express.js, JWT, bcrypt |
+| Storage | Cloudinary |
+| Deployment | Vercel (frontend) | Render (Backend) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##  Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js and npm installed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+git clone https://github.com/sahilroyal07/ecosystem-file-share.git
+cd ecosystem-file-share
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Run locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Option 1: use the start script
+./start.sh
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Option 2: start manually
+npm run dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:5000`
 
-## Learn More
+### Environment variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a `.env` file (see `.env.example`) with:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+REACT_APP_CLOUDINARY_URL=https://api.cloudinary.com/v1_1/<your-cloud-name>/upload
+REACT_APP_UPLOAD_PRESET=<your-upload-preset>
+REACT_APP_API_URL=http://localhost:5000
+JWT_SECRET=your-super-secret-jwt-key-change-in-production
+PORT=5000
+```
 
-### Code Splitting
+##  How It Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Upload** a file from any device — get a unique access code (e.g. `ABC123`)
+2. **Share** the code via text, email, or chat
+3. **Retrieve** the file on any other device using the code — no login needed
 
-### Analyzing the Bundle Size
+## 📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+secure-file-share/
+├── src/
+│   ├── components/
+│   │   └── MainApp.js        # Main application component
+│   ├── services/
+│   │   └── fileService.js    # Frontend API service layer
+│   ├── App.js
+│   ├── App.css
+│   └── config/
+│       └── environment.js
+├── backend/
+│   └── api/
+│       └── server.js         # Backend API
+└── server/                   # Legacy server files
+```
 
-### Making a Progressive Web App
+## 📄 Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+More detail is available in this repo:
+- `SETUP.md` — setup & quick start guide
+- `USAGE_GUIDE.md` — cross-device usage walkthrough
+- `DEPLOYMENT.md` — deployment instructions
+- `STRUCTURE.md` — project structure notes
 
-### Advanced Configuration
+## 🔗 Live Demo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ [eco-stemm-ewx3.vercel.app](https://eco-stemm-ewx3.vercel.app)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# ecosystem-file-share
-# ecosystem-file-share
+---
